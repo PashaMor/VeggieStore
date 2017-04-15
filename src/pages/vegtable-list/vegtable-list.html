@@ -8,5 +8,8 @@
 
 
 <ion-content padding>
-Hello
+<div *ngFor="let veg of vegList" [ngStyle]="{'color': veg.color}" class="Veg">
+ <veggie [vegg]="veg"></veggie>
+
+</div>
 </ion-content>

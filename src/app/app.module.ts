@@ -10,6 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {VegtableList} from "../pages/vegtable-list/vegtable-list";
 import {ShoppingBag} from "../pages/shopping-bag/shopping-bag";
 import {VegtableDetails} from "../pages/vegtable-details/vegtable-details";
+import {DataService} from "./service/Data-Service";
+import {Veggie} from "../components/veggie/veggie";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {VegtableDetails} from "../pages/vegtable-details/vegtable-details";
     VegtableList,
     ShoppingBag,
     VegtableDetails,
-    TabsPage
+    TabsPage,
+    Veggie
   ],
   imports: [
     BrowserModule,
@@ -26,12 +29,14 @@ import {VegtableDetails} from "../pages/vegtable-details/vegtable-details";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    Veggie,
     VegtableList,
     ShoppingBag,
     VegtableDetails,
     TabsPage
   ],
   providers: [
+    DataService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

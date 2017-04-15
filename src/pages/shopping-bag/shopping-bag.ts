@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DataService} from "../../app/service/Data-Service";
+import {Vegetable} from "../module/Vegetable-model";
 
 /**
  * Generated class for the ShoppingBag page.
@@ -13,12 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'shopping-bag.html',
 })
 export class ShoppingBag {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  shoopingBag:Vegetable[];
+  constructor(public navCtrl: NavController, public navParams: NavParams, private ds:DataService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShoppingBag');
   }
-
+  ionViewDidEnter(){
+    this.shoopingBag = this.ds.getShoppingBag();
+  }
 }
