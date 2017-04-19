@@ -9,10 +9,10 @@ export class DataService{
 
   constructor(){
     this.vegList = [
-      new Vegetable('tomato', 5.60, 'red', './assets/img/tomato.jpg'),
-      new Vegetable('Eggplant', 5.90, 'purple', './assets/img/Eggplant.jpg'),
-      new Vegetable('cucumber', 2.22, 'green', './assets/img/Cucumber.jpg'),
-      new Vegetable('Carrot', 1.2, 'orange', './assets/img/Carrot.jpg')
+      new Vegetable('tomato', 5.60, 'red','Im A Tomato', './assets/img/tomato.jpg'),
+      new Vegetable('Eggplant', 5.90, 'purple','Im A Eggplant', './assets/img/Eggplant.jpg'),
+      new Vegetable('cucumber', 2.22, 'green','Im A Cucumber', './assets/img/Cucumber.jpg'),
+      new Vegetable('Carrot', 1.2, 'orange','Im A Carrot', './assets/img/Carrot.jpg')
     ];
   }
   addVegToBag(veg:Vegetable){

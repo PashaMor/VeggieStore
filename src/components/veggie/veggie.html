@@ -4,4 +4,11 @@
   {{vegg.name}}
   {{vegg.price}}&#8362;
 </h2>
-<button ion-fab mini (click)="addToBag()"><ion-icon name="add"></ion-icon></button>
+<div class="buttons">
+  <button ion-fab mini (click)="addToBag()"><ion-icon name="add"></ion-icon></button>
+  <!--<button ion-button icon-only class="buttons" (click)="getInfo()">-->
+  <button ion-button icon-only class="buttons" (click)="DetailClick()">
+    <ion-icon name="information" >
+  </ion-icon>
+  </button>
+</div>

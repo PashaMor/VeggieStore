@@ -9,16 +9,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {VegtableList} from "../pages/vegtable-list/vegtable-list";
 import {ShoppingBag} from "../pages/shopping-bag/shopping-bag";
-import {VegtableDetails} from "../pages/vegtable-details/vegtable-details";
 import {DataService} from "./service/Data-Service";
 import {Veggie} from "../components/veggie/veggie";
+import {VegDetail} from "../pages/veg-detail/veg-detail";
 
 @NgModule({
   declarations: [
+    VegDetail,
     MyApp,
     VegtableList,
     ShoppingBag,
-    VegtableDetails,
     TabsPage,
     Veggie
   ],
@@ -28,11 +28,11 @@ import {Veggie} from "../components/veggie/veggie";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    VegDetail,
     MyApp,
     Veggie,
     VegtableList,
     ShoppingBag,
-    VegtableDetails,
     TabsPage
   ],
   providers: [
