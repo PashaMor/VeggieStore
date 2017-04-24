@@ -1,11 +1,13 @@
 import {Injectable} from "@angular/core";
 import {Vegetable} from "../../pages/module/Vegetable-model";
+import {VegtableSummary} from "../../pages/module/VegtableSummary";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 @Injectable()
 export class DataService{
 
  private vegList:Vegetable[] = [];
- private shoppingBag:Vegetable[] = [];
+ private shoppingBag:VegtableSummary[] = [];
 
   constructor(){
     this.vegList = [
@@ -16,13 +18,24 @@ export class DataService{
     ];
   }
   addVegToBag(veg:Vegetable){
-    this.shoppingBag.push(veg);
+    let result:VegtableSummary[] = this.shoppingBag.filter((vegSum) => {vegSum.vegtable===veg});
+    if(result.length == 0){
+      this.shoppingBag.push(new VegtableSummary(veg, 1));
+    }else {
+      result[0].increaseAmount()
+    }
   }
+
+
+
   getVegetableList():Vegetable[]{
     return this.vegList
   }
-  getShoppingBag():Vegetable[]{
+  getShoppingBag(){
     return this.shoppingBag;
+  }
+  vegRemove(idx){
+   this.shoppingBag.splice(idx,1);
   }
 
 }

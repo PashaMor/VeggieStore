@@ -7,14 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ShoppingBag</ion-title>
+    <ion-title>Shopping Bag</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<div>
-  {{shoopingBag}}
-</div>
+  <h1> Total Price: {{totalPrice}}</h1>
+
+
+  <div *ngFor="let Bag of shoppingBag; let idx = index">
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="Bag.vegtable.imageUrl" class="img">
+        </ion-avatar>
+        <h1>{{Bag.vegtable.name}}</h1>
+        <h2>{{Bag.vegtable.price}}&#8362;</h2>
+        <h2>{{Bag.amount}}Kg</h2>
+        <h3>Total{{Bag.amount * Bag.vegtable.price}}</h3>
+
+          <button ion-button icon-only item-right clear (click)="vegRemove(idx)">
+            <ion-icon name="remove-circle" item-right color="danger"></ion-icon>
+          </button>
+      </ion-item>
+    </ion-list>
+  </div>
+
 </ion-content>

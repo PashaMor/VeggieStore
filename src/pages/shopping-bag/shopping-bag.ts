@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {DataService} from "../../app/service/Data-Service";
-import {Vegetable} from "../module/Vegetable-model";
+import {VegtableSummary} from "../module/VegtableSummary";
 
 /**
  * Generated class for the ShoppingBag page.
@@ -15,13 +15,26 @@ import {Vegetable} from "../module/Vegetable-model";
   templateUrl: 'shopping-bag.html',
 })
 export class ShoppingBag {
-  shoopingBag:Vegetable[];
+    shoppingBag:VegtableSummary[];
+    totalPrice:number;
+  vegtable;
   constructor(public navCtrl: NavController, public navParams: NavParams, private ds:DataService) {
   }
 
   ionViewDidLoad() {
   }
+
   ionViewDidEnter(){
-    this.shoopingBag = this.ds.getShoppingBag();
+    this.shoppingBag = this.ds.getShoppingBag();
+    this.totalPrice = this.shoppingBag.reduce( (p,v) => p += v.vegtable.price  , 0);
+  }
+
+  vegRemove(idx){
+    this.ds.vegRemove(idx)
+    this.refreshTotal()
+  }
+  refreshTotal(){
+    this.totalPrice = this.shoppingBag.reduce( (p,v) => p += v.vegtable.price  , 0);
+
   }
 }

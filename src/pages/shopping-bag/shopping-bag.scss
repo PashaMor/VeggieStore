@@ -1,3 +1,8 @@
 page-shopping-bag {
-
+  .item-md ion-avatar ion-img, .item-md ion-avatar img {
+    width: 100px;
+    height: 85px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 }
